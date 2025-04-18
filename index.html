@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #countdown {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        a {
+            font-size: 1.2em;
+            color: #007BFF;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Countdown to April 26, 2025 at 12:00 PM GMT</h1>
+    <div id="countdown"></div>
+    <a href="https://www.roblox.com/games/71693598856693/EGG-HUNT-random-minigames" target="_blank">Go to Roblox Game</a>
+
+    <script>
+        // Set the target date and time
+        const targetDate = new Date("April 26, 2025 12:00:00 GMT");
+
+        // Update the countdown every second
+        const countdown = document.getElementById("countdown");
+        const interval = setInterval(function() {
+            // Get the current date and time
+            const now = new Date();
+            const timeLeft = targetDate - now;
+
+            // If the countdown is finished, display a message
+            if (timeLeft <= 0) {
+                clearInterval(interval);
+                countdown.innerHTML = "The time has arrived!";
+            } else {
+                // Calculate days, hours, minutes, and seconds
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                // Display the countdown
+                countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
